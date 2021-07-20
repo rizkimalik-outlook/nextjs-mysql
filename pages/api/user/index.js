@@ -1,16 +1,14 @@
 import knex from '../../../lib/db'
 
 export default async function handler(req, res) {
+    // console.log(req.headers);
     try {
-        if(req.method !== 'POST') return res.status(405).end('Method not Allowed');
-
-        const {id} = req.body;
-        const barang = await knex('barang').where('id',id);
+        const getData = await knex('users')
         
         res.status(200);
         res.json({ 
             status: 200,
-            data: barang 
+            data: getData 
         });
     } 
     catch (error) {

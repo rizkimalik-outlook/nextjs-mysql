@@ -1,4 +1,4 @@
-import knex from '../../../config/db'
+import knex from '../../../lib/db'
 
 export default async function handler(req, res) {
     try {
