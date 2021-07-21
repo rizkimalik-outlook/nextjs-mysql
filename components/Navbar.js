@@ -1,6 +1,15 @@
 import Link from "next/link";
+import Cookie from "js-cookie";
+import Router from "next/router";
 
 export default function Navbar() {
+
+    function logoutHandler(e) {
+        e.preventDefault()
+        Cookie.remove('token')
+        Router.replace('/login')
+    }
+
     return (
         <div className="bg-indigo-800">
             <div className="container">
@@ -21,6 +30,12 @@ export default function Navbar() {
                         <Link href="/login">
                             <a className="text-blue-100 hover:text-white py-5 px-3">Login</a>
                         </Link>
+                        <Link href="/register">
+                            <a className="text-blue-100 hover:text-white py-5 px-3">Register</a>
+                        </Link>
+                        {/* <Link > */}
+                            <a href="#" onClick={logoutHandler.bind(this)} className="text-blue-100 hover:text-white py-5 px-3">Logout</a>
+                        {/* </Link> */}
                     </div>
                 </div>
             </div>
